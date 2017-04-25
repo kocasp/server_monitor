@@ -1,8 +1,21 @@
-refresh_time: 1
+refresh_time: 3
+
+# send email interval (minutes)
+email_interval: 5
+
 ping_limits:
-  "8.8.8.8":
+  "interia.pl":
     packet_loss_percent: 3.3
     ping_time: 10.00
   "onet.pl":
     packet_loss_percent: 0
     ping_time: 20
+
+folders_limits:
+  "carer/":
+    size: 444
+  "config/":
+    size: 444
+
+# minimum memory in M
+minimum_memory_available: 20
