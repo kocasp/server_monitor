@@ -23,7 +23,7 @@ class Carer
   def checks
     output = []
     controls.each do |c|
-      output << "Type: #{c.type} | target: #{c.target} | control_value: #{c.value} | current_value: #{c.target_value} | status: #{c.errors.empty? ? 'OK!' : 'WARNING!'} | time: #{Time.now}"
+      output << "Type: #{c.type} | target: #{c.target} | control_value: #{c.value} | current_value: #{c.target_value} | status: #{c.passed? ? 'OK!' : 'WARNING!'} | time: #{Time.now}"
     end
     output
   end
