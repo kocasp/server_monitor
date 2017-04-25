@@ -1,4 +1,4 @@
-class Control::Custom
+class Control::Custom < Control
   attr_accessor :eval_phrase, :value, :comparator
   def passed?
     # TODO

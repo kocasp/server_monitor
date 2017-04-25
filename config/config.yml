@@ -11,11 +11,13 @@ ping_limits:
     packet_loss_percent: 0
     ping_time: 20
 
-folders_limits:
+directories:
   "carer/":
-    size: 444
+    size: 65
   "config/":
-    size: 444
+    size: 8
 
 # minimum memory in M
-minimum_memory_available: 20
+memory:
+  "memory":
+    minimum: 20

@@ -1,4 +1,4 @@
-class Control::Memory
+class Control::Memory < Control
   def passed?
     # TODO
   end

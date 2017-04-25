@@ -2,20 +2,23 @@
 require 'yaml'
 require 'pry'
 require 'pp'
+require_relative 'carer/control.rb'
 require_relative 'carer/carer.rb'
 require_relative 'carer/config.rb'
 require_relative 'carer/mailer.rb'
+require_relative 'carer/control/connection.rb'
+require_relative 'carer/control/custom.rb'
+require_relative 'carer/control/directories.rb'
+require_relative 'carer/control/memory.rb'
 
 carer = Carer.new(verbose: ARGV[0])
-
+# binding.pry
 while true do
-  carer.check!
+  carer.perform_controls!
   print %x{clear}
   puts Carer.header
-  pp carer.checks
+  carer.checks.each{|c| p c}
   puts "--------------------"
-  puts carer.logs.reverse.last(10)
-  carer.clear_logs!
 
   sleep carer.config.refresh_time
 end
