@@ -9,6 +9,6 @@ class Control::Custom < Control
   end
 
   def error_message
-    "Custom check of #{@params[:value]} failed"
+    "Custom check of #{@params[:target]} failed"
   end
 end
