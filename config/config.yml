@@ -1,0 +1,8 @@
+refresh_time: 1
+ping_limits:
+  "8.8.8.8":
+    packet_loss_percent: 3.3
+    ping_time: 10.00
+  "onet.pl":
+    packet_loss_percent: 0
+    ping_time: 20
