@@ -19,6 +19,7 @@ while true do
   puts Carer.header
   carer.checks.each{|c| p c}
   puts "--------------------"
+  puts "CURRENT PROBLEMS:"
   carer.errors.each{|e| p e}
   sleep carer.config.refresh_time
 end
