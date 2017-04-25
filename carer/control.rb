@@ -7,6 +7,7 @@ class Control
     @value = params[:value]
     @comparator = params[:comparator]
     @errors = []
+    calculate_target_value
   end
 
   def check!

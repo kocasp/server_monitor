@@ -10,7 +10,6 @@ class Carer
 
   def initialize_controls
     @controls = []
-    # @controls = config.controls_hash.map{|key, value| Object.const_get("Control::#{key.capitalize}").new(value)}
     config.controls_array.each do |control_type|
       klass = Object.const_get("Control::#{control_type[0].capitalize}")
       controls.concat control_type[1].map{|target, params| klass.new(target: target, value: params.values.first)}
