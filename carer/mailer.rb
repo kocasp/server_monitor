@@ -16,7 +16,7 @@ class Mailer
   def send_email(messages)
     # TODO
     # send email
-    p "EMAIL SENT to #{emails[0]}"
+    # p "EMAIL SENT to #{emails[0]}"
     @last_sent = Time.now
   end
 end
