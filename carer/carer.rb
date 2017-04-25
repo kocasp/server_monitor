@@ -8,18 +8,6 @@ class Carer
     initialize_mailer
   end
 
-  def initialize_controls
-    @controls = []
-    config.controls_array.each do |control_type|
-      klass = Object.const_get("Control::#{control_type[0].capitalize}")
-      if klass == Control::Custom
-        controls.concat control_type[1].map{|target, params| klass.new(target: target, target_value: params["target_value"], value: params["value"], comparator: params["comparator"])}
-      else
-        controls.concat control_type[1].map{|target, params| klass.new(target: target, value: params.values.first)}
-      end
-    end
-  end
-
   def checks
     output = []
     controls.each do |c|
@@ -32,6 +20,24 @@ class Carer
     controls.each do |c|
       c.check!
       report (c.errors.join("\n")) unless c.passed?
+    end
+  end
+
+  def errors
+    controls.map{|c| c.errors}.flatten
+  end
+
+  private
+
+  def initialize_controls
+    @controls = []
+    config.controls_array.each do |control_type|
+      klass = Object.const_get("Control::#{control_type[0].capitalize}")
+      if klass == Control::Custom
+        controls.concat control_type[1].map{|target, params| klass.new(target: target, target_value: params["target_value"], value: params["value"], comparator: params["comparator"])}
+      else
+        controls.concat control_type[1].map{|target, params| klass.new(target: target, value: params.values.first)}
+      end
     end
   end
 

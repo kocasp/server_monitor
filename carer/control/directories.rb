@@ -9,6 +9,6 @@ class Control::Directories < Control
   end
 
   def error_message
-    "#{@params[:target]} directory size (#{@params[:target_value]}) above #{@params[:value]}"
+    "#{@params[:target]} directory size (#{@target_value}) above #{@params[:value]}"
   end
 end

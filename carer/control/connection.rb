@@ -10,6 +10,6 @@ class Control::Connection < Control
   end
 
   def error_message
-    "ping  to #{@params[:target]} time (#{@params[:target_value]}) above #{@params[:value]}"
+    "ping to #{@params[:target]} time (#{@target_value}) above #{@params[:value]}"
   end
 end
