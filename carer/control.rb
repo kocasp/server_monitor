@@ -14,7 +14,7 @@ class Control
     @errors = []
     @performed = true
     calculate_target_value
-    add_error if target_value.public_send(comparator, value)
+    add_error unless target_value.public_send(comparator, value)
     self
   end
 

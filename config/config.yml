@@ -3,21 +3,29 @@ refresh_time: 3
 # send email interval (minutes)
 email_interval: 5
 
-ping_limits:
+# ping time limits
+connection:
   "interia.pl":
-    packet_loss_percent: 3.3
-    ping_time: 10.00
+    time: 10.00
   "onet.pl":
-    packet_loss_percent: 0
-    ping_time: 20
+    time: 20
 
+# directories size limits
 directories:
   "carer/":
     size: 65
   "config/":
-    size: 8
+    size: 3
 
 # minimum memory in M
 memory:
   "memory":
     minimum: 20
+
+
+# CUSTOM CHECK! checks if seconds in system time are less than 30
+custom:
+  "system_seconds_less_than_30":
+    target_value: '`date`.split(" ")[3].split(":").last.to_i'
+    comparator: "<"
+    value: 30
